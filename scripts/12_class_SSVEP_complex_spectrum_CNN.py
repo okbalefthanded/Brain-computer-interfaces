@@ -5,6 +5,7 @@ User-Dependent Training using Complex Spectrum Features (10-Fold Cross-validatio
 Following implementation is an asynchronous SSVEP BCI 
 using Convolutional Neural Network classification for 1 second data length
 """
+
 import numpy as np
 import scipy.io as sio
 import numpy.matlib as npm
@@ -76,7 +77,7 @@ for subject in range(0, 10):
     features_data = []
     
     class_labels = np.arange(CNN_PARAMS['num_classes'])
-    labels = (npm.matlib.repmat(class_labels, total_epochs_per_class, 1).T).ravel()
+    labels = (npm.repmat(class_labels, total_epochs_per_class, 1).T).ravel()
     labels = to_categorical(labels)
 
     num_folds = 10
